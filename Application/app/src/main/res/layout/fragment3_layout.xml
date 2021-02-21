@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8C9EFF"
+        android:columnCount="2"
+        android:paddingTop="40dp"
+        android:paddingBottom="100dp"
+        android:rowCount="4">
+
+        <TextView
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="CHD"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bpid"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="No Risk"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Hypoxemia (spo2)"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hrid"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="No Risk"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Asthma"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/oxyid"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Need Attentation"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Stress"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tempid"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="RISK"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+
+    </GridLayout>
+
+</LinearLayout>

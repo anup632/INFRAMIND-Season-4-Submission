@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Inframind</title>
+
+<!-- CSS -->
+<!--RESOURCE YT : https://www.youtube.com/watch?v=9Kt9eWEEpHI-->
+<style type="text/css">
+
+* {
+  box-sizing: border-box;
+}
+
+#userBox {
+    width: 100%;
+}
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 50%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 1px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+html,
+body {
+height: 100%;
+}
+.bottom-three {
+     margin-bottom: 3cm;
+  }
+body {
+background-image: url("http://sfwallpaper.com/images/background-image-for-website-1.jpg");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the "active" element to highlight the current page */
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+  float: center;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+
+
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+
+.container {
+  width: 100%;
+  padding-left: 100px;  
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+.html {width: 80%; background-color: #4CAF50;}
+.css {width: 10%; background-color: #2196F3;}
+.js {width: 3%; background-color: #f44336;}
+.php {width: 7%; background-color: #808080;}
+
+.column1 {
+  float: left;
+  width: 80%;
+}
+.column2 {
+  float: left;
+  width: 20%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+</head>
+<body >
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
+
+
+<script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCTMCkB3z0ZQQ-UDexQZpjNuMX51QP61NQ",
+    authDomain: "infra-sustainability.firebaseapp.com",
+    databaseURL: "https://infra-sustainability-default-rtdb.firebaseio.com",
+    projectId: "infra-sustainability",
+    storageBucket: "infra-sustainability.appspot.com",
+    messagingSenderId: "484673903223",
+    appId: "1:484673903223:web:4b80d7b17730421c720472",
+    measurementId: "G-G0C8KQLLEF"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var firebaseRef = firebase.database().ref("Sam-SE1234");
+        firebaseRef.on("value", function(snapshot){
+            var data = snapshot.val();
+            var fname1= snapshot.child("Sensor Data").child("bp").val();
+            var fname2= snapshot.child("Sensor Data").child("btemp").val();
+            var fname3= snapshot.child("Sensor Data").child("hr").val();
+            var fname4= snapshot.child("Sensor Data").child("oxy").val();
+            
+            document.getElementById('fname1').innerHTML= fname1;
+            document.getElementById('fname2').innerHTML= fname2;
+            document.getElementById('fname3').innerHTML= fname3;
+            document.getElementById('fname4').innerHTML= fname4;
+
+        })
+
+        function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+know = {
+                "hello" : "hi",
+                "how are you?" : "good",
+                "% of healthy employees":"80% employees are healthy",
+                "employees need attention":"10% employees need attention",
+                "critical employees":"Sam-SE123 needs help",
+                "James health status":"Healthy",
+                "ok" : ":)"
+            };
+            
+function talk() {
+                var user = document.getElementById("userBox").value;
+                document.getElementById("userBox").value = "";
+                document.getElementById("chatLog").innerHTML += user+"<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;";
+                if (user in know) {
+                    document.getElementById("chatLog").innerHTML += know[user]+"<br>";
+               } else {
+                    document.getElementById("chatLog").innerHTML += "I don't understand...<br>";
+                }
+            } 
+      </script>
+    
+   
+   
+<br>
+    <center><img src="img/Logo1.png"></center>
+ <br>
+ 
+
+ <form class=bottom-three action="/action_page.php">
+  <center> <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> 
+    <button type="button" style="padding: 10px;">Search</button></center> 
+  </form>
+
+  <div class="row">
+      <div class="column1">
+    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Normal</p>
+          <div class="container">
+           <div class="skills html">80%</div>
+          </div>
+    
+    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Need Attention</p>
+          <div class="container">
+           <div class="skills css">10%</div>
+          </div>
+    
+    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Critical</p>
+          <div class="container">
+           <div class="skills js">3%</div>
+          </div>
+    
+    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Data not available</p>
+          <div class="container">
+           <div class="skills php">7%</div>
+          </div>
+      </div>
+      <div class="column2" style="background-color:#bbb;">
+        <p id="chatLog"> - - - - - - - - - - - - - - - C H A T   B O T - - - - - - - - - - - - - - -<br></p>
+        <input id="userBox" type="text" onkeydown="if (event.keyCode == 13) {talk()}">   
+      </div>
+  </div>
+    
+<center><h2>EMPLOYEE DATA</h2></center>
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:20%;">NAME</th>
+    <th>BP (mmHg)</th>
+    <th>TEMP (°C)</th>
+    <th>HEART RATE (BPM)</th>
+    <th>OXYGEN (%)</th>
+    <th>STRESS</th>
+  </tr>
+  <tr>
+    <td>USER (User-DE3456)</td>
+    <td><b id="fname1" ><font size="3">Loading .....</font></b></td>
+      <td><b id="fname2" ><font size="3">Loading .....</font></b></td>
+      <td><b id="fname3" ><font size="3">Loading .....</font></b></td>
+      <td><b id="fname4" ><font size="3">Loading .....</font></b></td>
+      <td><b  ><font size="3">No</font></b></td>
+    
+    
+  </tr>
+  <tr>
+    <td>JAMES (James-SE8901)</td>
+    <td><b id="fname1" ><font size="3">100/70</font></b></td>
+      <td><b id="fname2" ><font size="3">36</font></b></td>
+      <td><b id="fname2" ><font size="3">77</font></b></td>
+      <td><b id="fname2" ><font size="3">96</font></b></td>
+      <td><b  ><font size="3">No</font></b></td>
+    
+  </tr>
+  <tr>
+    <td>SAM (Sam-SE1234)</td>
+    <td><b id="fname1" ><font size="3">99/75</font></b></td>
+      <td><b id="fname2" ><font size="3">39</font></b></td>
+      <td><b id="fname2" ><font size="3">71</font></b></td>
+      <td><b id="fname2" ><font size="3">99</font></b></td>
+      <td><b  ><font size="3">YES</font></b></td>
+  </tr>
+  
+</table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.v2_splashscreen">
+
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/appicon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.V2SplashScreen">
+        <activity
+            android:name=".TabbedPage"
+            android:label="@string/title_activity_tabbed_page"
+            android:theme="@style/Theme.V2SplashScreen.NoActionBar"></activity>
+        <activity
+            android:name=".HistoryPage"
+            android:parentActivityName=".LoginPage" />
+        <activity android:name=".SignInPage" />
+        <activity android:name=".LoginPage" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
